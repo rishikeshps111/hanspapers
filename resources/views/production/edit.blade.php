@@ -445,8 +445,8 @@
                             </div>
                             <div class="col-md-12 mt-4 text-end">
                                 @if ($productionItemMaster->status !== 'Assigning Pending')
-                                    <button class="btn btn-secondary print-btn"
-                                        data-id="{{ $productionItemMaster->id }}">Print</button>';
+                                    <button type="button" class="btn btn-secondary print-btn"
+                                        data-id="{{ $productionItemMaster->id }}">Print</button>
                                 @endif
                             </div>
                         </div>

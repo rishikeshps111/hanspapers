@@ -14,7 +14,7 @@ $(function () {
      * Initialize DataTable with server-side processing
      */
     function initializeDataTable() {
-        var exportColumns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11];
+        var exportColumns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
         
             
         
@@ -68,7 +68,7 @@ this.api().columns([1]).every(function() {
                                 category_name: $('select[data-column="5"]').val() || currentParams.get('category_name'),
                 duedate:  $('input[name="duedates"]').val(),
                 gapdate:  $('input[name="gapdates"]').val(),
-                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status')
+                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status')
 
               
             };
@@ -119,7 +119,7 @@ this.api().columns([3]).every(function() {
                                 category_name: $('select[data-column="5"]').val() || currentParams.get('category_name'),
                 duedate:  $('input[name="duedates"]').val(),
                 gapdate:  $('input[name="gapdates"]').val(),
-                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status'),
+                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status'),
               customer_id: $('select[data-column="1"]').val() || currentParams.get('customer_id'),
 
               
@@ -169,7 +169,7 @@ this.api().columns([4]).every(function () {
                                 category_name: $('select[data-column="5"]').val() || currentParams.get('category_name'),
                                 duedate: $('input[name="duedates"]').val(),
                                 gapdate: $('input[name="gapdates"]').val(),
-                                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status')
+                                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status')
                             };
 
                             Object.keys(filters).forEach(key => {
@@ -210,7 +210,7 @@ this.api().columns([4]).every(function () {
                                 product_name: $('select[data-column="3"]').val() || currentParams.get('product_name'),
                                 duedate: $('input[name="duedates"]').val(),
                                 gapdate: $('input[name="gapdates"]').val(),
-                                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status')
+                                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status')
                             };
 
                             Object.keys(filters).forEach(key => {
@@ -240,7 +240,7 @@ this.api().columns([4]).every(function () {
 
 
 
-                this.api().columns([9]).every(function () {
+                this.api().columns([11]).every(function () {
                     var column = this;
                     var header = $(column.header());
 
@@ -269,7 +269,7 @@ this.api().columns([4]).every(function () {
                                 customer_id: $('select[data-column="1"]').val() || currentParams.get('customer_id'),
                                 product_name: $('select[data-column="3"]').val() || currentParams.get('product_name'),
                                 gapdate: $('input[name="gapdates"]').val(),
-                                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status')
+                                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status')
                             };
 
                             // Remove empty filters
@@ -292,7 +292,7 @@ this.api().columns([4]).every(function () {
                                 customer_id: $('select[data-column="1"]').val() || currentParams.get('customer_id'),
                                 product_name: $('select[data-column="3"]').val() || currentParams.get('product_name'),
                                 gapdate: $('input[name="gapdates"]').val(),
-                                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status')
+                                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status')
                             };
 
                             Object.keys(filters).forEach(key => {
@@ -311,7 +311,7 @@ this.api().columns([4]).every(function () {
  
 //created gap
  
- this.api().columns([10]).every(function() {
+ this.api().columns([12]).every(function() {
     var column = this;
     var header = $(column.header());
     
@@ -331,7 +331,7 @@ this.api().columns([4]).every(function () {
                                 category_name: $('select[data-column="5"]').val() || currentParams.get('category_name'),
                   customer_id: $('select[data-column="1"]').val() || currentParams.get('customer_id'),
                 product_name: $('select[data-column="3"]').val() || currentParams.get('product_name'),
-                product_order_status: $('select[data-column="11"]').val() || currentParams.get('product_order_status')
+                product_order_status: $('select[data-column="13"]').val() || currentParams.get('product_order_status')
 
             };
 
@@ -344,7 +344,7 @@ this.api().columns([4]).every(function () {
             // Reload with combined filters
             table.ajax.url(baseURL + '/production/datatable-filter-list?' + $.param(filters)).load();
         })
-        .attr('data-column', '10'); // Add data attribute to identify this select
+        .attr('data-column', '12'); // Add data attribute to identify this select
     
     // Set initial value if exists in URL
     var initialCustomer = new URLSearchParams(window.location.search).get('customer_id');
@@ -357,7 +357,7 @@ this.api().columns([4]).every(function () {
 
  
 // Add filter for status column
-this.api().columns([11]).every(function() {
+this.api().columns([13]).every(function() {
     var column = this;
     var header = $(column.header());
     
@@ -387,7 +387,7 @@ this.api().columns([11]).every(function() {
             
             // Reload with combined filters
  table.ajax.url(baseURL + '/production/datatable-filter-list?' + $.param(filters)).load();        })
-        .attr('data-column', '11'); // Add data attribute to identify this select
+        .attr('data-column', '13'); // Add data attribute to identify this select
     
     // Set initial value if exists in URL
     var initialStatus = new URLSearchParams(window.location.search).get('product_order_status');
@@ -479,6 +479,22 @@ table.columns.adjust().draw();
                 }
             },
   {
+                data: 'assigned_machine',
+                name: 'assigned_machine',
+                defaultContent: '-',
+                orderable: false,
+                searchable: false,
+                render: $.fn.dataTable.render.text()
+            },
+            {
+                data: 'assigned_user',
+                name: 'assigned_user',
+                defaultContent: '-',
+                orderable: false,
+                searchable: false,
+                render: $.fn.dataTable.render.text()
+            },
+            {
                 data: 'requested_qty',
                 name: 'requested_qty',
                   orderable: false,
@@ -559,19 +575,21 @@ table.columns.adjust().draw();
                     3: 'Product Name',
                     4: 'Brand',
                     5: 'Category',
-                    6: 'Requested Quantity',
-                    7: 'Production Remaining',
-                    8: 'Packing Remaining',
-                    9: 'Due Date',
-                    10: 'Ageing (Days)',
-                    11: 'Status',
-                    12: '',
+                    6: 'Machine',
+                    7: 'Produced By',
+                    8: 'Requested Quantity',
+                    9: 'Production Remaining',
+                    10: 'Packing Remaining',
+                    11: 'Due Date',
+                    12: 'Ageing (Days)',
+                    13: 'Status',
+                    14: '',
                 };
 
                 return customHeaders[column] || headerText;
             },
             body: function (data, row, column, node) {
-                if (column === 12) {
+                if (column === 14) {
                     data = '';
                 }
                 var cmd = String(data).replace(/<.*?>/ig, "");
@@ -583,13 +601,13 @@ table.columns.adjust().draw();
         return [
 
             {
-                extend: 'copyHtml5',columns: exportColumns, exportOptions: exportFormatter,  "action": newexportaction
+                extend: 'copyHtml5',exportOptions: { ...exportFormatter, columns: exportColumns },  "action": newexportaction
             },
 
             {
-            extend: 'excelHtml5',columns: exportColumns,  exportOptions: exportFormatter,  "action": newexportaction,
+            extend: 'excelHtml5',exportOptions: { ...exportFormatter, columns: exportColumns },  "action": newexportaction,
             },
-            {extend: 'csvHtml5', columns: exportColumns, exportOptions: exportFormatter,  "action": newexportaction},
+            {extend: 'csvHtml5', exportOptions: { ...exportFormatter, columns: exportColumns },  "action": newexportaction},
             /*{
                 extend: 'pdfHtml5',
                 orientation: 'portrait',

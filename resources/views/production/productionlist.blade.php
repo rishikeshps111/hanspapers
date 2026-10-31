@@ -44,6 +44,8 @@ table.dataTable tbody td {
                                     <th>{{ __('item.item_name') }}</th>
                                     <th>{{ __('Brand') }}</th>
                                     <th>{{ __('Category') }}</th>
+                                    <th>{{ __('Machine') }}</th>
+                                    <th>{{ __('Produced By') }}</th>
                                     <th class="text-center">{{ __('Req Qty') }}</th>
                                     <th class="text-center">{{ __('Prod Rem Qty') }}</th>
                                     <th class="text-center">{{ __('Pck Rem Qty') }}</th>

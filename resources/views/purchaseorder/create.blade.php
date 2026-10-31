@@ -2,6 +2,17 @@
 @section('title', __('sale.Purchaseorder'))
 
         @section('content')
+        <style>
+            #invoiceItemsTable .quantity-column {
+                width: 180px;
+                min-width: 180px;
+            }
+
+            #invoiceItemsTable input[name^="quantity["] {
+                min-width: 150px;
+                width: 100%;
+            }
+        </style>
         <!--start page wrapper -->
         <div class="page-wrapper">
             <div class="page-content">
@@ -141,7 +152,7 @@
                                                             <!--<th scope="col" class="{{ !app('company')['enable_size'] ? 'd-none':'' }}">{{ __('item.size') }}</th>-->
                                                               <th scope="col">{{ __('CS Stock') }}</th>
                                                             <th scope="col">{{ __('Ava Stock') }}</th>
-                                                            <th scope="col">{{ __('app.qty') }}</th>
+                                                            <th scope="col" class="quantity-column">{{ __('app.qty') }}</th>
                                                             <th scope="col">{{ __('Brand') }}</th>
                                                             <th scope="col">{{ __('Category') }}</th>
                                                             <th scope="col">{{ __('Status') }}</th>

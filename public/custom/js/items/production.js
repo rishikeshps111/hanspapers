@@ -170,31 +170,31 @@ $('input[name="stock_status"]').val(stock_status);
         ajaxRequest(formArray);
     });
     
-    $(document).on('click', '.print-btn', function () {
+    $(document).on('click', '.print-btn', function (event) {
+        event.preventDefault();
         let id = $(this).data('id');
+        let width = 700;
+        let height = 900;
+        let left = (screen.width - width) / 2;
+        let top = (screen.height - height) / 2;
+        let printWindow = window.open('', '', `width=${width},height=${height},top=${top},left=${left}`);
+
+        if (!printWindow) {
+            alert('Please allow popups to print the production summary.');
+            return;
+        }
 
         $.ajax({
             url: '/production/print-view/' + id,
             type: 'GET',
             success: function (html) {
-                let width = 700;
-                let height = 900;
-
-                // Calculate center position
-                let left = (screen.width - width) / 2;
-                let top = (screen.height - height) / 2;
-                let printWindow = window.open('', '', `width=${width},height=${height},top=${top},left=${left}`);
-                printWindow.document.write('<html><head><title>Print</title>');
-                printWindow.document.write('<style>@media print { @page { size: A5 portrait; } body { font-family: Arial; } }</style>');
-                printWindow.document.write('</head><body>');
+                if (printWindow.closed) return;
+                printWindow.document.open();
                 printWindow.document.write(html);
-                printWindow.document.write('</body></html>');
                 printWindow.document.close();
-                printWindow.focus();
-                printWindow.print();
-                printWindow.close(); // optional
             },
             error: function () {
+                printWindow.close();
                 alert('Failed to load print content.');
             }
         });

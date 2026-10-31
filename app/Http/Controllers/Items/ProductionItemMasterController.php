@@ -1107,7 +1107,7 @@ if ($status == "pending") {
         // $query = PurchaseOrderMaster::with('party');
 
         //  $productionLists = ProductionItemMaster::with('item','requestedBy','approvedBy','purchaseOrder')->get();
-        $query = ProductionItemMaster::with('item', 'item.brand', 'item.category', 'requestedBy', 'approvedBy', 'purchaseOrder', 'purchaseOrder.party', 'productionLists', 'packingLists');
+        $query = ProductionItemMaster::with('item', 'item.brand', 'item.category', 'requestedBy', 'approvedBy', 'purchaseOrder', 'purchaseOrder.party', 'productionLists', 'packingLists', 'assignedMachine', 'assignedProductionUser');
 
 
         if ($request->filled('customer_id')) {
@@ -1391,7 +1391,7 @@ if ($status == "pending") {
         // $query = PurchaseOrderMaster::with('party');
 
         //  $productionLists = ProductionItemMaster::with('item','requestedBy','approvedBy','purchaseOrder')->get();
-        $query = ProductionItemMaster::with('item', 'item.brand', 'item.category', 'requestedBy', 'approvedBy', 'purchaseOrder', 'purchaseOrder.party', 'productionLists', 'packingLists');
+        $query = ProductionItemMaster::with('item', 'item.brand', 'item.category', 'requestedBy', 'approvedBy', 'purchaseOrder', 'purchaseOrder.party', 'productionLists', 'packingLists', 'assignedMachine', 'assignedProductionUser');
 
         $ccstatus = $request->cstatus;
         if ($request->filled('cstatus')) {
